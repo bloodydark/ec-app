@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { getUserId } from "../reduxs/users/selectors";
+import { getUserId } from "../reducks/users/selectors";
 
 const Home = () => {
   const selector = useSelector((state) => state);

@@ -15,7 +15,6 @@ export default function createStore(history) {
       router: connectRouter(history),
       users: UsersReducer,
     }),
-    applyMiddleware(routerMiddleware(history)),
-    thunk
+    applyMiddleware(routerMiddleware(history), thunk)
   );
 }
