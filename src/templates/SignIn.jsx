@@ -2,6 +2,7 @@ import React, { useCallback, useState } from "react";
 import { TextInput, PrimaryButton } from "../components/UIkit";
 import { signIn } from "../reducks/users/operations";
 import { useDispatch } from "react-redux";
+import { push } from "connected-react-router";
 
 const SignIn = () => {
   const dispatch = useDispatch();
@@ -53,6 +54,12 @@ const SignIn = () => {
           label={"Sign In"}
           onClick={() => dispatch(signIn(email, password))}
         />
+        <p onClick={() => dispatch(push("/signup"))}>
+          アカウントをお持ちでない方はこちら
+        </p>
+        <p onClick={() => dispatch(push("/signin/reset"))}>
+          パスワードを忘れた方はこちら
+        </p>
       </div>
     </div>
   );
