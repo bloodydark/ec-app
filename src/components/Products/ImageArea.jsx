@@ -4,11 +4,11 @@ import { makeStyles } from "@material-ui/styles";
 import IconButton from "@material-ui/core/IconButton";
 import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate";
 import { useDispatch } from "react-redux";
-import {
-  showLoadingAction,
-  hideLoadingAction,
-} from "../../reducks/loading/actions";
-import { ImagePreview } from "./index";
+// import {
+//   showLoadingAction,
+//   hideLoadingAction,
+// } from "../../reducks/loading/actions";
+import ImagePreview from "./ImagePreview";
 
 const useStyles = makeStyles({
   icon: {
@@ -39,7 +39,7 @@ const ImageArea = (props) => {
 
   const uploadImage = useCallback(
     (event) => {
-      dispatch(showLoadingAction("uploading..."));
+      // dispatch(showLoadingAction("uploading..."));
       const file = event.target.files;
       let blob = new Blob(file, { type: "image/jpeg" });
 
@@ -60,16 +60,16 @@ const ImageArea = (props) => {
           uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
             const newImage = { id: fileName, path: downloadURL };
             props.setImages((prevState) => [...prevState, newImage]);
-            dispatch(hideLoadingAction());
+            // dispatch(hideLoadingAction());
           });
         })
         .catch(() => {
-          dispatch(hideLoadingAction());
+          // dispatch(hideLoadingAction());
         });
     },
     [props.setImages]
   );
-    
+
   return (
     <div>
       <div className="p-grid__list-images">
