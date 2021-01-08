@@ -4,6 +4,7 @@ import { saveProduct } from "../reducks/products/operations";
 import { PrimaryButton, SelectBox, TextInput } from "../components/UIkit";
 import ImageArea from "../components/Products/ImageArea";
 import { db } from "../firebase/index";
+import SetSizeArea from "../components/Products/SetSizeArea";
 
 const ProductEdit = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,8 @@ const ProductEdit = () => {
     [category, setCategory] = useState(""),
     [gender, setGender] = useState(""),
     [images, setImages] = useState([]),
-    [price, setPrice] = useState("");
+    [price, setPrice] = useState(""),
+    [sizes, setSizes] = useState([]);
 
   const inputName = useCallback(
     (event) => {
@@ -122,13 +124,23 @@ const ProductEdit = () => {
           value={price}
           type={"number"}
         />
-        <div className="module-spacer--medium" />
+        <div className="module-spacer--small" />
+        <SetSizeArea sizes={sizes} />
+        <div className="module-spacer--small" />
         <div className="center">
           <PrimaryButton
             label={"商品情報を保存"}
             onClick={() =>
               dispatch(
-                saveProduct(name, description, category, gender, price, images)
+                saveProduct(
+                  id,
+                  name,
+                  description,
+                  category,
+                  gender,
+                  price,
+                  images
+                )
               )
             }
           />
