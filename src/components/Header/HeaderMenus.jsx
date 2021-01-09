@@ -12,7 +12,7 @@ const HeaderMenus = () => {
         <Badge badgeContent={3} color="secondary">
           <ShoppingCartIcon />
         </Badge>
-      </IconButton>
+      </IconButton> 
       <IconButton>
         <FavoriteBorderIcon />
       </IconButton>
