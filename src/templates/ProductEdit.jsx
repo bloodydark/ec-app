@@ -71,6 +71,7 @@ const ProductEdit = () => {
           setCategory(data.category);
           setPrice(data.price);
           setDescription(data.description);
+          setSizes(data.sizes);
         });
     }
   }, [id]);
@@ -125,7 +126,7 @@ const ProductEdit = () => {
           type={"number"}
         />
         <div className="module-spacer--small" />
-        <SetSizeArea sizes={sizes} />
+        <SetSizeArea sizes={sizes} setSizes={setSizes} />
         <div className="module-spacer--small" />
         <div className="center">
           <PrimaryButton
@@ -139,7 +140,8 @@ const ProductEdit = () => {
                   category,
                   gender,
                   price,
-                  images
+                  images,
+                  sizes
                 )
               )
             }
